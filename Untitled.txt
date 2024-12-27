@@ -1,0 +1,72 @@
+
+# Lesson on File Modes and Context Managers
+
+## Introduction
+In this lesson, we will cover file modes and context managers in Python. Understanding these concepts is crucial for efficiently handling file operations.
+
+## File Modes
+Python provides several modes for opening files:
+- `r`: Read mode (default). Opens the file for reading.
+- `w`: Write mode. Opens the file for writing (creates a new file or truncates an existing file).
+- `a`: Append mode. Opens the file for appending (writes data at the end of the file).
+- `r+`: Read and write mode. Opens the file for both reading and writing.
+- `w+`: Write and read mode. Opens the file for reading and writing (creates a new file or truncates an existing file).
+- `a+`: Append and read mode. Opens the file for reading and appending.
+
+### Examples of File Modes
+```python
+# File path
+file_path = 'example.txt'
+
+# Write mode
+with open(file_path, 'w') as file:
+    file.write("This is write mode.\n")
+print("Data written using write mode.")
+
+# Read mode
+with open(file_path, 'r') as file:
+    content = file.read()
+    print("Content read using read mode:")
+    print(content)
+
+# Append mode
+with open(file_path, 'a') as file:
+    file.write("This is append mode.\n")
+print("Data appended using append mode.")
+
+# Read mode to verify append
+with open(file_path, 'r') as file:
+    content = file.read()
+    print("Content after appending:")
+    print(content)
+```
+
+## Context Managers
+Context managers in Python are used to manage resources, such as files, in a way that ensures they are properly handled (e.g., closed after use). The `with` statement is used to create a context manager.
+
+### Benefits of Using Context Managers
+- Ensures that resources are properly cleaned up after use.
+- Makes the code more readable and concise.
+- Handles exceptions gracefully.
+
+### Example of a Context Manager
+```python
+# Using a context manager to write to a file
+with open(file_path, 'w') as file:
+    file.write("Using context manager to write data.\n")
+print("Data written using context manager.")
+
+# Using a context manager to read from a file
+with open(file_path, 'r') as file:
+    content = file.read()
+    print("Data read using context manager:")
+    print(content)
+```
+
+## Summary
+- File modes determine how files are opened and operated on (read, write, append).
+- Context managers ensure that resources are properly managed and cleaned up.
+- Using context managers with the `with` statement is a best practice for file operations in Python.
+
+## Hands-on Exercise
+Try creating, reading, writing, and appending to files using different file modes and context managers. Experiment with handling exceptions and ensuring resources are properly managed.
